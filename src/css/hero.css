@@ -1,0 +1,268 @@
+main {
+  display: flex;
+  max-width: 1770px;
+  padding-top: var(--header-height);
+  margin: 0 auto;
+}
+
+#temp,
+#hero__socials {
+  min-width: 151px;
+}
+
+#hero__socials {
+  position: fixed;
+}
+
+#hero__socials-content {
+  max-width: 52px;
+  min-height: calc(100vh - var(--header-height));
+  border-right: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 0;
+  font-size: 1.125rem;
+  color: #fff;
+}
+
+#hero__socials-title {
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-bottom: 29px;
+}
+
+#hero__socials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#hero-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hero__socials-link {
+  display: block;
+  text-decoration: none;
+}
+
+.hero__socials-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.hero__socials-icon:hover {
+  opacity: 0.7;
+}
+
+#hero__socials-copyright {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+#sections {
+  flex: 1;
+}
+
+#hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.75rem;
+}
+
+#hero__number {
+  display: inline-block;
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 402px;
+  height: 213px;
+}
+
+#hero__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-end;
+  gap: 2rem;
+}
+
+#hero__content__title {
+  max-width: 459px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1rem;
+  color: #fff;
+}
+
+#hero__content__title > p {
+  font-size: 1.125em;
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+#hero__content__title > h1 {
+  font-size: 3.75em;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+#view-more {
+  position: relative;
+  width: 157px;
+  height: 50px;
+  border: 1px solid var(--primary-color);
+  font-weight: normal;
+  font-size: 1.125em;
+  margin-top: 0.75em;
+  background: transparent;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#view-more::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+#view-more:hover::before {
+  width: 100%;
+}
+
+#view-more:hover {
+  background: var(--primary-color);
+  color: #000;
+}
+
+#hero__navigators {
+  align-self: self-end;
+}
+
+.slide-btn {
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.slide-btn__icon {
+  width: 48px;
+  height: 16px;
+}
+
+#slide-btn__icon-left {
+  transform: rotate(180deg);
+}
+
+#slide-btn__left:hover {
+  transform: translateX(-5px);
+}
+
+#slide-btn__right:hover {
+  transform: translateX(5px);
+}
+
+@media screen and (max-width: 1440px) {
+  #hero__content__title > h1 {
+    font-size: 3em;
+  }
+
+  #hero__number {
+    width: 300px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    padding-top: calc(var(--header-height) * 0.8);
+  }
+
+  #hero {
+    padding-top: 1.5rem;
+  }
+
+  #hero__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #hero__content__title {
+    max-width: 100%;
+  }
+
+  #hero__content__title > h1 {
+    font-size: 2.5em;
+  }
+
+  #hero__number {
+    width: 250px;
+    height: 133px;
+    opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #temp,
+  #hero__socials {
+    display: none;
+  }
+
+  #sections {
+    padding: 0 1rem;
+  }
+
+  #hero__content__title > h1 {
+    font-size: 2em;
+  }
+
+  #hero__number {
+    width: 200px;
+    height: 106px;
+  }
+
+  .slide-btn__icon {
+    width: 36px;
+    height: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #hero {
+    row-gap: 1.5rem;
+  }
+
+  #hero__content__title > p {
+    font-size: 1em;
+  }
+
+  #hero__content__title > h1 {
+    font-size: 1.5em;
+  }
+
+  #view-more {
+    width: 100%;
+    height: 44px;
+    font-size: 1em;
+  }
+
+  #hero__number {
+    width: 150px;
+    height: 80px;
+  }
+}

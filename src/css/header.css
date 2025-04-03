@@ -1,0 +1,348 @@
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  height: var(--header-height);
+  padding-right: 3em;
+  padding-left: 7.75em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-color);
+  z-index: 1;
+}
+
+#header__logo {
+  width: 151px;
+  height: auto;
+}
+
+#header__nav {
+  display: flex;
+  align-items: center;
+  column-gap: 3.5rem;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.header__nav__ref {
+  position: relative;
+  text-transform: uppercase;
+  padding: 7px 2px;
+  transition: color 0.3s ease;
+  color: var(--secondary-color);
+}
+
+.header__nav__ref::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.header__nav__ref:hover::after {
+  width: 100%;
+}
+
+.has-mega-menu {
+  position: static;
+}
+
+#mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  padding: 2.5em 2em;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.has-mega-menu:hover #mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#mega-menu__inner {
+  max-width: 1670px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  column-gap: 3em;
+}
+
+#mega-menu__nav {
+  min-width: 274px;
+  background: #fff;
+}
+
+.mega-menu__nav__link {
+  width: 100%;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.mega-menu__nav__ref {
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75em 0.5em 0.75em 1.5em;
+  transition: all 0.3s ease;
+  font-weight: normal;
+  font-size: 1.125rem;
+}
+
+.mega-menu__nav__chevron {
+  width: 26px;
+  height: 26px;
+}
+
+.mega-menu__nav__ref:hover {
+  background-color: #f5f5f5;
+}
+
+#mega-menu__content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: end;
+  column-gap: 0.75em;
+}
+
+.mega-menu__item {
+  color: var(--secondary-color);
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mega-menu__item:hover {
+  transform: translateY(-5px);
+}
+
+.mega-menu__item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  align-self: flex-end;
+}
+
+.mega-menu__item span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+#header__feats {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+.header__feats__btn {
+  transition: transform 0.2s ease;
+}
+
+.header__feats__btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+.header__feats__icon {
+  width: 2.3em;
+  height: 2.3em;
+}
+
+#mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+#mobile-menu-icon {
+  width: 30px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#mobile-menu-icon::before,
+#mobile-menu-icon::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+#mobile-menu-icon::before {
+  transform: translateY(-8px);
+}
+
+#mobile-menu-icon::after {
+  transform: translateY(8px);
+}
+
+#mobile-menu-icon.active {
+  background-color: transparent;
+}
+
+#mobile-menu-icon.active::before {
+  transform: translateY(0) rotate(45deg);
+}
+
+#mobile-menu-icon.active::after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+@media screen and (max-width: 1720px) {
+  #mega-menu__inner {
+    column-gap: 1.5em;
+  }
+
+  #mega-menu__content {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  #header__nav {
+    column-gap: 2em;
+  }
+
+  #mega-menu__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #header__feats {
+    column-gap: 1em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 0 1.5rem;
+    height: calc(var(--header-height) * 0.8);
+  }
+
+  #mobile-menu-toggle {
+    display: block;
+  }
+
+  #header__nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #header__nav {
+    position: fixed;
+    top: calc(var(--header-height) * 0.8);
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    padding: 2rem 0;
+    row-gap: 2em;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    height: calc(100vh - var(--header-height) * 0.8);
+  }
+
+  #mega-menu {
+    position: fixed;
+    inset: 0;
+    padding: 1em;
+  }
+
+  #mega-menu__inner {
+    position: relative;
+    flex-direction: column;
+  }
+
+  #mega-menu__content {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #mega-menu__nav {
+    position: sticky;
+    top: 0;
+    min-width: 100%;
+    border-bottom: 1px solid #eee;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #mega-menu__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .has-mega-menu {
+    position: static;
+  }
+
+  .mega-menu__nav__ref {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 16px;
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mega-menu__nav__ref:hover,
+  .mega-menu__nav__ref.active {
+    background-color: var(--primary-color);
+  }
+
+  .mega-menu__nav__chevron {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    padding: 0 1rem;
+  }
+
+  #header__logo {
+    width: 100px;
+  }
+
+  #header__feats {
+    column-gap: 0.75rem;
+  }
+
+  #mega-menu {
+    padding: 0.5em;
+  }
+
+  #mega-menu__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
